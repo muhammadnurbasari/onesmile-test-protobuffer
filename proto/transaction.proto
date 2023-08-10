@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package generate;
+
+option go_package = "./generate";
+
+import "google/protobuf/empty.proto";
+
+message Item {
+    string name = 1;
+    int32 quantity = 2;
+    int64 subtotal = 3;
+}
+
+message Transaction {
+    repeated Item items = 1;
+    int64 grandtotal = 2;
+    string credit_card = 3;
+}
+
+message History {
+    int32 id = 1;
+    repeated Transaction detail = 2;
+}
+
+service Transactions {
+    rpc Create (Transaction) returns (google.protobuf.Empty) {}
+    rpc Histories (google.protobuf.Empty) returns (History) {}
+}
+

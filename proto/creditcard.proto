@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package generate;
+
+option go_package = "./generate";
+
+message Validate {
+    bool isValidate = 1;
+}
+
+message CreditCard {
+    string creditCard = 1;
+}
+
+service Validation {
+    rpc ValidateCreditCard (CreditCard) returns (Validate) {}
+}
