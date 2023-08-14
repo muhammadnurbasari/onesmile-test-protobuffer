@@ -20,11 +20,17 @@ message Transaction {
 
 message History {
     int32 id = 1;
-    repeated Transaction detail = 2;
+    repeated Item items = 2;
+    int64 grandtotal = 3;
+    string credit_card = 4;
+}
+
+message HistoryList {
+    repeated History list = 1;
 }
 
 service Transactions {
     rpc Create (Transaction) returns (google.protobuf.Empty) {}
-    rpc Histories (google.protobuf.Empty) returns (History) {}
+    rpc Histories (google.protobuf.Empty) returns (HistoryList) {}
 }
 
