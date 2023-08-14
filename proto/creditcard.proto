@@ -5,11 +5,11 @@ package generate;
 option go_package = "./generate";
 
 message Validate {
-    bool isValidate = 1;
+    bool is_validate = 1;
 }
 
 message CreditCard {
-    string creditCard = 1;
+    string credit_card = 1;
 }
 
 service Validation {
